@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
+/*
+  THEME — "Ember Athletic"
+  A premium high-contrast system: deep charcoal/near-black paired with a
+  warm bone off-white, anchored by a single electric ember-orange accent.
+*/
+
+@theme {
+  /* Core palette */
+  --color-ink: #0a0a0b; /* near-black primary background */
+  --color-ink-soft: #121214; /* elevated dark surface */
+  --color-ink-line: #1f1f23; /* hairline borders on dark */
+  --color-bone: #f4f2ed; /* warm off-white light sections */
+  --color-bone-soft: #eae6dd; /* elevated light surface */
+  --color-bone-line: #d9d3c7; /* hairline borders on light */
+
+  /* Accent — electric ember */
+  --color-accent: #ff5a1f;
+  --color-accent-bright: #ff7a45;
+  --color-accent-deep: #d6450f;
+
+  /* Neutrals for text */
+  --color-mist: #a6a6ad; /* muted text on dark */
+  --color-graphite: #5c5a54; /* muted text on light */
+
+  /* Fonts (wired in layout via next/font) */
+  --font-display: var(--font-bebas);
+  --font-sans: var(--font-inter);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-ink);
+  --foreground: var(--color-bone);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar jitter, keep premium feel */
+::selection {
+  background: var(--color-accent);
+  color: #0a0a0b;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2e;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-deep);
+}
+
+@layer utilities {
+  /* Display type helper */
+  .font-display {
+    font-family: var(--font-display), Impact, sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  /* NOTE: outlined "ghost" text (the hero's last name) is applied via inline
+     style in Hero.tsx — the CSS processor strips -webkit-text-stroke from
+     custom utilities, so inline style is the reliable approach. */
+
+  /* Section vertical rhythm */
+  .section {
+    padding-top: clamp(4.5rem, 9vw, 9rem);
+    padding-bottom: clamp(4.5rem, 9vw, 9rem);
+  }
+
+  .container-x {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* Subtle film grain / vignette overlays */
+  .vignette {
+    background: radial-gradient(
+      120% 100% at 50% 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+  }
+
+  .accent-glow {
+    box-shadow: 0 0 0 1px rgba(255, 90, 31, 0.25),
+      0 20px 60px -20px rgba(255, 90, 31, 0.45);
+  }
+}
+
+/* Marquee for the moving accent strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }
