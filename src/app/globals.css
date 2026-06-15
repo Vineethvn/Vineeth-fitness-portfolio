@@ -8,12 +8,12 @@
 
 @theme {
   /* Core palette */
-  --color-ink: #0a0a0b; /* near-black primary background */
-  --color-ink-soft: #121214; /* elevated dark surface */
-  --color-ink-line: #1f1f23; /* hairline borders on dark */
-  --color-bone: #f4f2ed; /* warm off-white light sections */
-  --color-bone-soft: #eae6dd; /* elevated light surface */
-  --color-bone-line: #d9d3c7; /* hairline borders on light */
+  --color-ink: #141416; /* rich dark charcoal background */
+  --color-ink-soft: #1c1c20; /* elevated dark surface */
+  --color-ink-line: #2a2a30; /* hairline borders on dark */
+  --color-bone: #ffffff; /* pure white light sections */
+  --color-bone-soft: #f4f4f6; /* elevated light surface */
+  --color-bone-line: #e2e2e6; /* hairline borders on light */
 
   /* Accent — electric ember */
   --color-accent: #ff5a1f;
@@ -21,8 +21,8 @@
   --color-accent-deep: #d6450f;
 
   /* Neutrals for text */
-  --color-mist: #a6a6ad; /* muted text on dark */
-  --color-graphite: #5c5a54; /* muted text on light */
+  --color-mist: #9090a0; /* muted text on dark */
+  --color-graphite: #52525e; /* muted text on light */
 
   /* Fonts (wired in layout via next/font) */
   --font-display: var(--font-bebas);

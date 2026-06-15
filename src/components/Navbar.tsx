@@ -28,7 +28,7 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="container-x flex h-16 items-center justify-between md:h-20">
+      <nav className={`container-x flex h-16 items-center justify-between md:h-20 ${open ? "invisible" : ""}`}>
         <a
           href="#top"
           className="font-display text-2xl leading-none tracking-wide text-bone md:text-3xl"
