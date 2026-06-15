@@ -78,7 +78,7 @@ export function Hero() {
         >
           <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
           <span className="text-xs font-medium uppercase tracking-[0.3em] text-mist">
-            {profile.role} · {profile.location}
+            {profile.heroEyebrow}
           </span>
         </motion.div>
 

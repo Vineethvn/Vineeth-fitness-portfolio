@@ -15,6 +15,7 @@ export const profile = {
   location: "Muscat, Oman · Kerala, India",
   // Background media for the hero. Drop a real photo/video into /public and
   // point these at it (e.g. "/hero.jpg" or "/hero.mp4").
+  heroEyebrow: "Fitness Coach · Muscat, Oman",
   heroImage:
     "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop",
   heroVideo: "", // optional: "/hero.mp4" — takes priority over heroImage when set
@@ -89,7 +90,7 @@ export const experiences: Experience[] = [
     role: "BodyPower Ambassador — India (UK)",
     org: "BodyPower",
     meta: "Kerala Team",
-    period: "Ongoing",
+    period: "2018 — 2020",
     description:
       "Part of the BodyPower Kerala team, supporting fitness events and community across India.",
   },

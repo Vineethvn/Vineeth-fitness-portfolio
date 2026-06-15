@@ -22,7 +22,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-[200] transition-all duration-500 ${
         scrolled
           ? "border-b border-ink-line bg-ink/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
@@ -73,7 +73,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 flex flex-col bg-ink lg:hidden"
+            className="fixed inset-0 z-[200] flex flex-col bg-ink lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
